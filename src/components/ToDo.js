@@ -15,7 +15,10 @@ function ToDo({ text, onBtnClick, id }) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onBtnClick: () => dispatch(actionCreators.deleteToDo(ownProps.id)),
+    onBtnClick: (e) => {
+      e.preventDefault();
+      dispatch(actionCreators.deleteToDo(ownProps.id));
+    },
   };
 }
 
